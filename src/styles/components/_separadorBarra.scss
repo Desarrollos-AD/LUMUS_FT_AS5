@@ -1,0 +1,53 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as mx;
+
+.separadorTexto {
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    background-color: v.$color_primario;
+    gap: 10rem;
+
+    &__carrusel {
+        display: flex;
+        padding-right: 2rem;
+        will-change: transform;
+        animation: scrolling 20s linear infinite;
+        gap: 10rem;
+
+        &--items {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            h2 {
+                color: v.$negro;
+                padding-right: 2rem;
+                white-space: nowrap;
+                margin: 0;
+                font-weight: v.$bold;
+                padding: 2rem;
+                font-size: clamp(2.6rem, 2.8vw, 3rem);
+
+                @include mx.telefono-mediano {
+                    padding-right: 4rem;
+                }
+            }
+        }
+    }
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

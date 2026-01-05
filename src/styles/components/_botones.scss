@@ -10,7 +10,6 @@
 
     &__negro {
         @include mx.boton(v.$negro, inline-block, 1rem, v.$blanco);
-
         &:hover {
                 background-color: color.scale(v.$negro, $lightness: 15%);
             }
