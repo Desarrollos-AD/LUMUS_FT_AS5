@@ -1,0 +1,7 @@
+@use '../base/variables' as v;
+
+.active {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid v.$blanco;
+    border-radius: .5rem;
+}
