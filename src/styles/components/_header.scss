@@ -1,7 +1,50 @@
-header{
+@use '../base/variables' as v;
+@use '../base/mixins' as mx;
+
+header {
     background-image: url(../../../public/images/header.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: end;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    &__info {
+        max-width: 60%;
+        position: relative;
+        color: v.$blanco;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+
+        h1,
+        h2 {
+            text-align: left;
+        }
+
+        &--btn {
+            display: flex;
+            gap: 2.5rem;
+        }
+    }
+
 }
