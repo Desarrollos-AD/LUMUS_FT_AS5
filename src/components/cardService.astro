@@ -1,0 +1,502 @@
+---
+import servicios from "../data/servicios.json";
+---
+
+<div class="contenedor">
+  <main class="carousel-container" id="productCarousel" role="region">
+    <h2 id="carouselHeading">Conoce Nuestros Serviciós</h2>
+
+    <div class="cards-wrapper" aria-live="polite"></div>
+    <button
+      type="button"
+      class="nav-arrow prev-arrow"
+      aria-label="Previous Product Set"
+      aria-controls="productCarousel"
+    >
+      <svg
+        class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        stroke="currentColor"
+        focusable="false"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+      </svg>
+    </button>
+    <button
+      type="button"
+      class="nav-arrow next-arrow"
+      aria-label="Next Product Set"
+      aria-controls="productCarousel"
+    >
+      <svg
+        class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        stroke="currentColor"
+        focusable="false"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+      </svg>
+    </button>
+
+    <div
+      class="pagination-dots"
+      role="tablist"
+      aria-label="Product Set Navigation"
+    >
+    </div>
+
+    <div class="progress-container" aria-hidden="true">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        aria-label="Carousel Progress"
+      >
+      </div>
+    </div>
+
+    <div class="keyboard-hint" aria-hidden="true">
+      Use
+      <kbd class="key" title="Left Arrow Key">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </kbd>
+      and
+      <kbd class="key" title="Right Arrow Key">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </kbd>
+      to navigate
+    </div>
+  </main>
+</div>
+<script is:client="load">
+  (() => {
+    "use strict";
+
+    const CAROUSEL_ID = "productCarousel";
+    const CONFIG = {
+      animationDuration: 300,
+      swipeThreshold: 50,
+      touchMovementScaleFactor: 0.6,
+      initialLoadDelay: 600,
+      notificationTimeout: 3500,
+      debounceResizeTime: 150,
+    };
+
+    const PRODUCTS_DATA = [
+      {
+        id: 1,
+        titulo: "Diagnóstico y Mecánica General",
+        descripcion:
+          "Realizamos diagnósticos precisos y servicios de mecánica general para garantizar el óptimo funcionamiento de su vehículo.",
+        no_servicios: 7,
+        img: "diagnostico.webp",
+        alt: "Imagen diagnostico",
+        servicios: {
+          servicios_1: "Diagnóstico computarizado",
+          servicios_2: "Afinación",
+          servicios_3: "Frenos y clutch",
+          servicios_4: "Marchas y transmisiones",
+          servicios_5: "Alternadores",
+          servicios_6: "Sistemas eléctricos y cambio de luces",
+          servicios_7: "Computadoras para vehículos",
+        },
+      },
+      {
+        id: 2,
+        titulo: "Reparación y Mantenimiento de Vehículos y Maquinaria",
+        descripcion:
+          "Servicios especializados en reparación, mantenimiento y refacción de vehículos, motocicletas, camiones, tractocamiones y maquinaria.",
+        no_servicios: 4,
+        img: "mantenimiento.webp",
+        alt: "Imagen mantenimiento",
+        servicios: {
+          servicios_1: "Reparación de componentes mecánicos",
+          servicios_2: "Refacción de maquinaria",
+          servicios_3: "Mantenimiento preventivo y correctivo",
+          servicios_4: "Adaptación y alteración de vehículos",
+        },
+      },
+      {
+        id: 3,
+        titulo: "Laminación y Pintura",
+        descripcion:
+          "Servicio profesional de laminación y pintura para equipo de transporte y carga, cuidando estética, estructura y protección del vehículo.",
+        img: "pintura.jpeg",
+        alt: "Imagen pintura",
+      },
+      {
+        id: 4,
+        titulo: "Autopartes, Refacciones y Comercialización",
+        descripcion:
+          "Ofrecemos opciones flexibles de venta y alquiler de autopartes y accesorios, asegurando calidad, disponibilidad y precios competitivos",
+        no_servicios: 8,
+        img: "autopartes.jpg",
+        alt: "Imagen autopartes",
+        servicios: {
+          servicios_1: "Autopartes y refacciones",
+          servicios_2: "Repuestos y accesorios",
+          servicios_3: "Lubricantes y combustibles",
+          servicios_4: "Insumos para vehículos",
+          servicios_5: "Adquisición y distribución",
+          servicios_6: "Importación y exportación",
+          servicios_7: "Artículos y materiales de ferretería y construcción",
+          servicios_8: "Artículos y materiales de ferretería y construcción",
+        },
+      },
+    ];
+
+    const DOM = {
+      carouselContainer: null,
+      cardsWrapper: null,
+      prevArrow: null,
+      nextArrow: null,
+      paginationDotsContainer: null,
+      loadingOverlay: null,
+      progressBar: null,
+    };
+
+    const STATE = {
+      currentIndex: 0,
+      cardWidthWithMargin: 0,
+      isAnimating: false,
+      isLoaded: false,
+      isInteracting: false,
+      touchData: { startX: 0, currentX: 0, startTime: 0, isDragging: false },
+      resizeTimeoutId: null,
+      imagePreloadPromises: [],
+    };
+
+    const Utils = {
+      debounce(func, delay) {
+        let timeoutId;
+        return (...args) => {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => func.apply(this, args), delay);
+        };
+      },
+      preloadImage(src) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve(img);
+          img.onerror = (err) =>
+            reject(
+              new Error(`Failed to load image: ${src}. Error: ${err.type}`)
+            );
+        });
+      },
+    };
+
+    const Carousel = {
+      init() {
+        DOM.carouselContainer = document.getElementById(CAROUSEL_ID);
+        if (!DOM.carouselContainer) {
+          console.error(
+            `Carousel container with ID #${CAROUSEL_ID} not found.`
+          );
+          return;
+        }
+
+        DOM.cardsWrapper =
+          DOM.carouselContainer.querySelector(".cards-wrapper");
+        DOM.prevArrow = DOM.carouselContainer.querySelector(".prev-arrow");
+        DOM.nextArrow = DOM.carouselContainer.querySelector(".next-arrow");
+        DOM.paginationDotsContainer =
+          DOM.carouselContainer.querySelector(".pagination-dots");
+        DOM.loadingOverlay = DOM.progressBar =
+          DOM.carouselContainer.querySelector(".progress-bar");
+
+        DOM.loadingOverlay.classList.add("visible");
+        STATE.imagePreloadPromises = PRODUCTS_DATA.map((product) =>
+          Utils.preloadImage(product.imageSrc).catch((e) => e)
+        );
+
+        Promise.allSettled(STATE.imagePreloadPromises).then((results) => {
+          results
+            .filter((result) => result.status === "rejected")
+            .forEach((result) => console.warn(result.reason));
+
+          setTimeout(() => {
+            this.renderCards();
+            this.renderPaginationDots();
+            this.calculateCardWidth();
+            this.setInitialPosition();
+            this.bindEvents();
+            STATE.isLoaded = true;
+            DOM.loadingOverlay.classList.remove("visible");
+            this.updateAccessibility();
+
+            const activeCard = DOM.cardsWrapper.querySelector(".card.active");
+            if (activeCard) activeCard.focus({ preventScroll: true });
+          }, CONFIG.initialLoadDelay);
+        });
+      },
+
+      renderCards() {
+        const fragment = document.createDocumentFragment();
+        PRODUCTS_DATA.forEach((product, index) => {
+          const cardEl = document.createElement("div");
+          cardEl.className = "card";
+          cardEl.dataset.index = index;
+          cardEl.setAttribute("role", "tabpanel");
+          cardEl.setAttribute("id", `product-panel-${product.id}`);
+          cardEl.setAttribute("aria-labelledby", `product-tab-${product.id}`);
+          cardEl.setAttribute("tabindex", "-1");
+
+          cardEl.innerHTML = `
+          <div class="top-section">
+            <div class="card__image-container">
+              <img src="/images/${product.img}" alt="${product.alt}" class="card__product-image" loading="lazy" width="900" height="900">
+            </div>
+          </div>
+          <div class="bottom-section">
+            <h4 class="title">${product.titulo}</h4>
+                <p>${product.descripcion}</p>
+
+            <div class="row ">
+                <a  href="/servicios" class="item">
+                  <p>${product.no_servicios}
+                      <span>Ver Servicios</span>
+                    </p>
+                
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#b7d002" d="M598.6 342.6C611.1 330.1 611.1 309.8 598.6 297.3L470.6 169.3C458.1 156.8 437.8 156.8 425.3 169.3C412.8 181.8 412.8 202.1 425.3 214.6L498.7 288L64 288C46.3 288 32 302.3 32 320C32 337.7 46.3 352 64 352L498.7 352L425.3 425.4C412.8 437.9 412.8 458.2 425.3 470.7C437.8 483.2 458.1 483.2 470.6 470.7L598.6 342.7z"/></svg>                  </a>
+                </a>
+            </div>
+          </div>
+                `;
+          fragment.appendChild(cardEl);
+        });
+        DOM.cardsWrapper.appendChild(fragment);
+      },
+
+      renderPaginationDots() {
+        const fragment = document.createDocumentFragment();
+        PRODUCTS_DATA.forEach((product, index) => {
+          const dotEl = document.createElement("button");
+          dotEl.type = "button";
+          dotEl.className = "pagination-dot";
+          dotEl.setAttribute("role", "tab");
+          dotEl.setAttribute("id", `product-tab-${product.id}`);
+          dotEl.setAttribute("aria-controls", `product-panel-${product.id}`);
+          dotEl.dataset.index = index;
+          fragment.appendChild(dotEl);
+        });
+        DOM.paginationDotsContainer.innerHTML = "";
+        DOM.paginationDotsContainer.appendChild(fragment);
+      },
+
+      calculateCardWidth() {
+        const firstCard = DOM.cardsWrapper.querySelector(".card");
+        if (firstCard) {
+          const style = window.getComputedStyle(firstCard);
+          STATE.cardWidthWithMargin =
+            firstCard.offsetWidth +
+            parseFloat(style.marginLeft) +
+            parseFloat(style.marginRight);
+        }
+      },
+
+      setInitialPosition() {
+        STATE.currentIndex = 0;
+        this.update(false);
+      },
+
+      update(animate = true, customOffset = 0) {
+        if (STATE.isAnimating && animate) return;
+        if (animate) STATE.isAnimating = true;
+
+        const baseOffset =
+          DOM.carouselContainer.offsetWidth / 2 - STATE.cardWidthWithMargin / 2;
+        const targetTranslateX =
+          baseOffset -
+          STATE.currentIndex * STATE.cardWidthWithMargin +
+          customOffset;
+
+        DOM.cardsWrapper.style.transitionProperty = animate
+          ? "transform"
+          : "none";
+        DOM.cardsWrapper.style.transitionDuration = animate
+          ? `${CONFIG.animationDuration}ms`
+          : "0ms";
+        DOM.cardsWrapper.style.transitionTimingFunction = animate
+          ? "var(--timing-ease-out-quint)"
+          : "linear";
+        DOM.cardsWrapper.style.transform = `translateX(${targetTranslateX}px)`;
+
+        this.updateAccessibility();
+        this.updateProgressBar();
+
+        if (animate) {
+          const animationEndHandler = () => {
+            STATE.isAnimating = false;
+            const activeCard = DOM.cardsWrapper.querySelector(".card.active");
+            if (
+              activeCard &&
+              document.activeElement !== activeCard &&
+              (!DOM.carouselContainer.contains(document.activeElement) ||
+                document.activeElement.matches(".nav-arrow"))
+            ) {
+              activeCard.focus({ preventScroll: true });
+            }
+          };
+          DOM.cardsWrapper.addEventListener(
+            "transitionend",
+            animationEndHandler,
+            { once: true }
+          );
+        } else if (!STATE.isLoaded) {
+          const activeCard = DOM.cardsWrapper.querySelector(".card.active");
+          if (activeCard) activeCard.focus({ preventScroll: true });
+        }
+      },
+
+      updateAccessibility() {
+        DOM.cardsWrapper.querySelectorAll(".card").forEach((card, index) => {
+          const isActive = index === STATE.currentIndex;
+          card.classList.toggle("active", isActive);
+          card.setAttribute("aria-selected", isActive);
+          card.setAttribute("tabindex", isActive ? "0" : "-1");
+        });
+
+        DOM.paginationDotsContainer
+          .querySelectorAll(".pagination-dot")
+          .forEach((dot, index) => {
+            const isActive = index === STATE.currentIndex;
+            dot.classList.toggle("active", isActive);
+            dot.setAttribute("aria-selected", isActive);
+            dot.setAttribute("tabindex", isActive ? "0" : "-1");
+          });
+      },
+
+      updateProgressBar() {
+        if (DOM.progressBar && PRODUCTS_DATA.length > 0) {
+          const percentage =
+            ((STATE.currentIndex + 1) / PRODUCTS_DATA.length) * 100;
+          DOM.progressBar.style.width = `${percentage}%`;
+          DOM.progressBar.setAttribute("aria-valuenow", Math.round(percentage));
+        }
+      },
+
+      goToSlide(index) {
+        if (
+          index === STATE.currentIndex ||
+          STATE.isAnimating ||
+          index < 0 ||
+          index >= PRODUCTS_DATA.length
+        )
+          return;
+        STATE.currentIndex = index;
+        this.update();
+      },
+
+      next() {
+        if (STATE.isAnimating) return;
+        STATE.currentIndex = (STATE.currentIndex + 1) % PRODUCTS_DATA.length;
+        this.update();
+      },
+
+      prev() {
+        if (STATE.isAnimating) return;
+        STATE.currentIndex =
+          (STATE.currentIndex - 1 + PRODUCTS_DATA.length) %
+          PRODUCTS_DATA.length;
+        this.update();
+      },
+
+      bindEvents() {
+        DOM.prevArrow.addEventListener("click", () => this.prev());
+        DOM.nextArrow.addEventListener("click", () => this.next());
+
+        DOM.paginationDotsContainer.addEventListener("click", (e) => {
+          const dot = e.target.closest(".pagination-dot");
+          if (dot?.dataset.index) {
+            this.goToSlide(parseInt(dot.dataset.index, 10));
+          }
+        });
+
+        DOM.cardsWrapper.addEventListener("click", (e) => {
+          const card = e.target.closest(".card");
+          if (!card) return;
+          const cardIndex = parseInt(card.dataset.index, 10);
+          if (cardIndex !== STATE.currentIndex) {
+            this.goToSlide(cardIndex);
+          }
+        });
+
+        DOM.cardsWrapper.addEventListener(
+          "touchstart",
+          this.handleTouchStart.bind(this),
+          { passive: true }
+        );
+        window.addEventListener(
+          "resize",
+          Utils.debounce(
+            this.handleResize.bind(this),
+            CONFIG.debounceResizeTime
+          )
+        );
+      },
+
+      handleResize() {
+        this.calculateCardWidth();
+        this.update(false);
+      },
+
+      handleTouchStart(e) {
+        if (STATE.isAnimating) return;
+        STATE.isInteracting = true;
+        STATE.touchData.isDragging = true;
+        STATE.touchData.startX = e.touches[0].clientX;
+        STATE.touchData.currentX = STATE.touchData.startX;
+        STATE.touchData.startTime = Date.now();
+        DOM.cardsWrapper.style.transitionProperty = "none";
+      },
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => Carousel.init());
+    } else {
+      Carousel.init();
+    }
+  })();
+</script>
