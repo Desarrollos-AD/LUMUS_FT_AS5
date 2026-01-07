@@ -1,0 +1,122 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mx;
+@use "sass:color";
+
+footer {
+    background-color: v.$negro;
+    height: 70rem;
+
+    @include mx.telefono-mediano {
+        height: 40rem;
+    }
+
+    @include mx.tablet-pequena {
+        height: 35rem;
+    }
+
+}
+
+.footer {
+
+    &__contenido {
+        @include mx.grid(1, 5rem);
+        align-items: center;
+        margin: 5rem auto;
+
+        @include mx.telefono-mediano {
+            @include mx.grid(2, 5rem);
+        }
+
+        @include mx.tablet-pequena {
+            @include mx.grid(3, 5rem);
+        }
+
+        &--logo {
+            width: 20rem;
+            grid-row: 1/2;
+            margin: 0 auto;
+
+            p {
+                color: v.$blanco;
+                font-size: clamp(1.2rem, 1.3vw, 1.4rem);
+                text-align: center;
+            }
+        }
+
+        &--contenido {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            grid-row: 2/3;
+            flex-direction: column;
+
+            @include mx.telefono-mediano {
+                grid-column: 1/3;
+                grid-row: 2/3;
+                flex-direction: row;
+            }
+
+            @include mx.tablet-pequena {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                flex-direction: row;
+            }
+
+            a {
+                &:hover {
+                    color: v.$color_primario;
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+
+        &--contacto {
+            grid-row: 3/4;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            @include mx.telefono-mediano {
+                grid-column: 2/3;
+                grid-row: 1/2;
+            }
+
+            @include mx.tablet-pequena {
+                grid-column: 3/4;
+                grid-row: 1/2;
+            }
+
+            .contacto--item {
+                display: flex;
+                flex-direction: column;
+                color: v.$blanco;
+                align-items: center;
+
+                svg {
+                    width: 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+.legal {
+    border-top: 1px solid v.$color_primario;
+    text-align: center;
+    padding-top: 2.5rem;
+
+    p {
+        color: v.$blanco;
+        text-align: center;
+    }
+
+    a {
+        font-size: 1.4rem;
+
+        &:hover {
+            color: color.scale(v.$blanco, $lightness: -25%);
+        }
+    }
+
+}
