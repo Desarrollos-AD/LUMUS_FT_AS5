@@ -90,7 +90,7 @@
     width: 95%;
     perspective: var(--carousel-perspective);
     margin-block: clamp(40px, 8vh, 80px);
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     contain: layout style;
     margin: 2.5rem 2.5rem 7rem 2.5rem;
 
@@ -98,15 +98,22 @@
         color: v.$blanco;
         text-align: left;
     }
+
+         @include mx.telefono-mediano{
+                padding-bottom: 60px;
+         }
 }
 
 .cards-wrapper {
     display: flex;
     align-items: center;
-    padding-block: 30px;
     margin-inline: auto;
     transition: transform var(--duration-slow) var(--timing-soft-eio);
     will-change: transform;
+
+    @include mx.tablet-grande {
+        padding-block: 3rem;
+    }
 }
 
 .cards {
@@ -161,11 +168,11 @@
         color: v.$color_primario;
         text-align: center;
         letter-spacing: 1px;
-        
+
         @include mx.telefono-grande {
             height: 10rem;
             text-align: left;
-            }
+        }
     }
 
     .row {
@@ -406,7 +413,7 @@
     width: 10px;
     height: 10px;
     border-radius: var(--radius-full);
-    background-color: var(--color-border-interactive);
+    background-color: #b8d00244;
     transition-property: background-color, transform, width, box-shadow;
     transition-duration: var(--duration-normal);
     transition-timing-function: var(--timing-soft-eio);
