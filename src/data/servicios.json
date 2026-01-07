@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "titulo": "Diagnóstico y Mecánica General",
+    "descripcion": "Realizamos diagnósticos precisos y servicios de mecánica general para garantizar el óptimo funcionamiento de su vehículo.",
+    "no_servicios": 7,
+    "servicios": {
+      "servicios_1": "Diagnóstico computarizado",
+      "servicios_2": "Afinación",
+      "servicios_3": "Frenos y clutch",
+      "servicios_4": "Marchas y transmisiones",
+      "servicios_5": "Alternadores",
+      "servicios_6": "Sistemas eléctricos y cambio de luces",
+      "servicios_7": "Computadoras para vehículos"
+    }
+  },
+  {
+    "id": 2,
+    "titulo": "Reparación y Mantenimiento de Vehículos y Maquinaria",
+    "descripcion": "Servicios especializados en reparación, mantenimiento y refacción de vehículos, motocicletas, camiones, tractocamiones y maquinaria.",
+    "no_servicios": 4,
+    "servicios": {
+      "servicios_1": "Reparación de componentes mecánicos",
+      "servicios_2": "Refacción de maquinaria",
+      "servicios_3": "Mantenimiento preventivo y correctivo",
+      "servicios_4": "Adaptación y alteración de vehículos"
+    }
+  },
+  {
+    "id": 3,
+    "titulo": "Laminación y Pintura",
+    "descripcion": "Servicio profesional de laminación y pintura para equipo de transporte y carga, cuidando estética, estructura y protección del vehículo."
+  },
+  {
+    "id": 4,
+    "titulo": "Autopartes, Refacciones y Comercialización",
+    "descripcion": "Ofrecemos opciones flexibles de venta y alquiler de autopartes y accesorios, asegurando calidad, disponibilidad y precios competitivos",
+    "no_servicios": 8,
+    "servicios": {
+      "servicios_1": "Autopartes y refacciones",
+      "servicios_2": "Repuestos y accesorios",
+      "servicios_3": "Lubricantes y combustibles",
+      "servicios_4": "Insumos para vehículos",
+      "servicios_5": "Adquisición y distribución",
+      "servicios_6": "Importación y exportación",
+      "servicios_7": "Artículos y materiales de ferretería y construcción",
+      "servicios_8": "Artículos y materiales de ferretería y construcción"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mx;
+@use "sass:color";
+
+.btn {
+
+    &__verde {
+        @include mx.boton(v.$color_primario, inline-block, 1rem, v.$blanco);
+    }
+
+    &__negro {
+        @include mx.boton(v.$negro, inline-block, 1rem, v.$blanco);
+        &:hover {
+                background-color: color.scale(v.$negro, $lightness: 15%);
+            }
+    }
+}

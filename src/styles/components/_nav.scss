@@ -7,7 +7,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 10rem;
+        height: 8rem;
     }
 
     &__background {
@@ -44,7 +44,7 @@
 
     &__logo {
         padding: 1rem;
-        width: 20rem;
+        width: 18rem;
 
         &--movil {
             width: 15rem;
@@ -76,6 +76,7 @@
     clip-path: circle(25px at calc(0% + 45px) 45px);
     clip-path: circle(25px at calc(100% - 45px) 45px);
     transition: all 0.3s ease-in-out;
+    z-index: 5;
 }
 
 #active:checked~.wrapper {
@@ -89,7 +90,6 @@
 
     .menu-btn {
         position: absolute;
-        z-index: 2;
         right: 2rem;
         top: 2rem;
         height: 5rem;
@@ -100,6 +100,8 @@
         padding: .7rem;
         background: v.$color_primario;
         transition: all 0.3s ease-in-out;
+        z-index: 10;
+
     }
 }
 
@@ -150,7 +152,7 @@
     top: -5%;
     border-radius: 50px;
     transform: scaleY(0);
-    z-index: -1;
+    z-index: 20;
     animation: rotate 1.5s linear infinite;
     transition: transform 0.3s ease;
 }
