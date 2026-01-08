@@ -1,0 +1,186 @@
+---
+import CurvedLoop from "../ui/CurvedLoop";
+---
+
+<section>
+  <div class="contenedor">
+    <form action="" class="formulario">
+      <div class="formulario__formas">
+        <div class="contenedor">
+          <h3>Solicita tu servicio con nosotros</h3>
+          <p>
+            Completa el formulario con tus datos y descríbenos lo que necesitas.
+            Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo
+            a la brevedad para brindarte asesoría profesional, resolver tus
+            dudas y ofrecerte una solución confiable y personalizada para tu
+            vehículo o maquinaria.
+          </p>
+
+          <div class="btn__verde no_buttom">
+            <button type="submit" class="btn__noButtom">Enviar Mensaje</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="formulario__correo">
+        <div class="contenedor">
+          <h3>Envíanos un mensaje</h3>
+          <div class="correo--item">
+            <div class="form__grupo">
+              <label for="nombre">Nombre:</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Ingresa tu nombre:"
+              />
+            </div>
+            <div class="form__grupo">
+              <label for="compania">Compañía:</label>
+              <input
+                type="text"
+                id="compania"
+                name="compania"
+                required
+                placeholder="Ingresa tu compañía:"
+              />
+            </div>
+          </div>
+          <div class="correo--item">
+            <div class="form__grupo">
+              <label for="correo">Correo Electrónico:</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                required
+                placeholder="Ingresa tu correo electrónico:"
+              />
+            </div>
+            <div class="form__grupo">
+              <label for="telefono">Teléfono:</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                required
+                placeholder="Ingresa tu teléfono:"
+              />
+            </div>
+          </div>
+          <div class="textarea">
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              required
+              placeholder="Ingresa tu mensaje aquí..."></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="contenedor">
+  <section class="cards3D">
+    <div class="parent card1">
+      <div class="cards__card">
+        <div class="logo">
+          <span class="circle circle3"></span>
+          <span class="circle circle4"></span>
+          <span class="circle circle5"> </span>
+        </div>
+        <div class="glass"></div>
+        <div class="content">
+          <span class="title">
+            Av. Independencia 144, Paso del Toro, Medellín de Bravo, Veracruz</span
+          >
+          <span class="text">
+            Visítanos en nuestro taller y recibe atención directa y
+            personalizada de nuestro equipo especializado.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="parent card2">
+      <div class="cards__card">
+        <div class="logo">
+          <span class="circle circle3"></span>
+          <span class="circle circle4"></span>
+          <span class="circle circle5"> </span>
+        </div>
+        <div class="glass"></div>
+        <div class="content">
+          <span class="title"> +52 229 931 0631</span>
+          <span class="text">
+            Comunícate con nosotros para cotizaciones, información o agendar tu
+            servicio.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="parent card3">
+      <div class="cards__card">
+        <div class="logo">
+          <span class="circle circle3"></span>
+          <span class="circle circle4"></span>
+          <span class="circle circle5"> </span>
+        </div>
+        <div class="glass"></div>
+        <div class="content">
+          <span class="title">lumoscontabilidad@gmail.com</span>
+          <span class="text">
+            Escríbenos y te responderemos a la brevedad con la información que
+            necesitas.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ubicacion">
+    <div class="decoracion__left"></div>
+    <div class="ubicacion__contenido">
+      <CurvedLoop
+        client:visible
+        marqueeText="NUESTRO TALLER  ✦ LUMOS MECÁNICA  ✦ SERVICIO PROFESIONAL  ✦ "
+        speed={1.5}
+        curveAmount={300}
+        className="text-loop"
+      />
+
+      <div class="ubicacion__contenido--mapa">
+        <div class="contenedor">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46577.54128342399!2d-96.1592741172297!3d19.048994148944995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c36bcb6a0a4da1%3A0x589473201be7a8a8!2sAv.%20Independencia%20144%2C%2094277%20Paso%20del%20Toro%2C%20Ver.!5e1!3m2!1ses-419!2smx!4v1767819625206!5m2!1ses-419!2smx"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="ubicacion__contenido--descripcion">
+        <p>
+          Te invitamos a conocer nuestro taller y recibir atención directa y
+          personalizada de nuestro equipo especializado. Estamos listos para
+          brindarte asesoría profesional, resolver tus dudas y ofrecerte
+          soluciones confiables para el mantenimiento y reparación de tu
+          vehículo o maquinaria.
+        </p>
+        <p>
+          <span
+            >Visítanos y comprueba la calidad y el compromiso que nos
+            distinguen.</span
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

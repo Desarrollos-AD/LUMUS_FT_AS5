@@ -1,42 +1,10 @@
+@use '../base/mixins' as mx;
+
 .decoracion {
-    position: absolute;
-    width: 20rem;
-    height: 20rem;
-    background: rgb(184, 208, 2);
-    border-radius: 50%;
-    z-index: 0;
-    box-shadow:
-        0 30px 80px rgb(184, 208, 2),
-        0 0 120px rgb(184, 208, 2);
-    animation: flotar 8s ease-in-out infinite;
-    top: 25%;
-    left: 10%;
-    transform: translate(-50%, -90%);
+    @include mx.circuloSombra(25%, 0, 0, 10%, 20rem, 20rem);
 }
 
 .decoracion__left {
-    position: absolute;
-    width: 20rem;
-    height: 20rem;
-    background: rgb(184, 208, 2);
-    border-radius: 50%;
-    z-index: 0;
-    box-shadow:
-        0 30px 80px rgb(184, 208, 2),
-        0 0 120px rgb(184, 208, 2);
-    animation: flotar 8s ease-in-out infinite;
-    top: 30%;
-    left: 75%;
-    transform: translate(-50%, -50%);
+    @include mx.circuloSombra(40%, 0%, 0%, 47%, 15rem, 15rem);
 }
-@keyframes flotar {
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
