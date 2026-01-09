@@ -12,10 +12,9 @@
     background: rgba(255, 255, 255, 0.14);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(247, 247, 247, 0.199);
-    backdrop-filter: blur(140px);
+    backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(60px);
     border: 1px solid rgba(255, 255, 255, 0.089);
-    position: relative;
     z-index: 1;
     padding: 3rem 0;
     height: auto;
@@ -106,33 +105,5 @@
                 grid-row: 2/3;
             }
         }
-    }
-}
-
-.decoracion {
-    position: absolute;
-    width: 20rem;
-    height: 20rem;
-    background: rgb(184, 208, 2);
-    border-radius: 50%;
-    z-index: 0;
-    box-shadow:
-        0 30px 80px rgb(184, 208, 2),
-        0 0 120px rgb(184, 208, 2);
-    animation: flotar 8s ease-in-out infinite;
-    top: 25%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes flotar {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
     }
 }

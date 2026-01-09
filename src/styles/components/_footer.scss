@@ -120,3 +120,15 @@ footer {
     }
 
 }
+
+.nav__link {
+    position: relative;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+.nav__link:active {
+    transform: scale(0.95);
+}
