@@ -1,17 +1,33 @@
 ---
+import Nav from "../components/nav.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/hader.astro";
 import SeparadorBarra from "../components/separadorBarra.astro";
 import CardAstro from "../components/cardService.astro";
 import PorqueElegirnos from "../components/porqueElegirnos.astro";
 import Contacto from "../components/contacto.astro";
+import Valores from "../components/valores.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <Layout>
-  <Header />
-  <SeparadorBarra />
-  <CardAstro />
-  <PorqueElegirnos />
+  <section id="inicio" class="animate">
+    <Nav />
+    <Header />
+    <SeparadorBarra />
+  </section>
 
-  <Contacto/>
+  <section id="servicios" class="animate">
+    <CardAstro />
+  </section>
+
+  <section id="nosotros" class="animate">
+    <PorqueElegirnos />
+    <Valores />
+  </section>
+
+  <section id="contacto" class="animate">
+    <Contacto />
+    <Footer />
+  </section>
 </Layout>

@@ -1,0 +1,63 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mx;
+
+.valores {
+    display: flex;
+    color: v.$color_primario;
+    flex-direction: column;
+    margin-top: 5rem;
+    align-items: end;
+
+    @include mx.tablet-pequena {
+        flex-direction: row;
+    }
+
+    h3 {
+        font-weight: v.$bold;
+    }
+
+    &__vision,
+    &__mision {
+        height: 60rem;
+        background: hsla(0, 0%, 17%, 1);
+        background: linear-gradient(315deg, hsla(0, 0%, 17%, 1) 16%, hsla(0, 0%, 0%, 1) 72%);
+        background: -moz-linear-gradient(315deg, hsla(0, 0%, 17%, 1) 16%, hsla(0, 0%, 0%, 1) 72%);
+        background: -webkit-linear-gradient(315deg, hsla(0, 0%, 17%, 1) 16%, hsla(0, 0%, 0%, 1) 72%);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(184, 208, 2, 0.15);
+        backdrop-filter: blur(140px);
+        -webkit-backdrop-filter: blur(60px);
+
+        p {
+            color: v.$blanco;
+            margin: 2.5rem;
+        }
+    }
+
+    &__vision {
+        flex: 1;
+    }
+
+    &__valores {
+        background: rgb(184, 208, 2);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(184, 208, 2, 0.15);
+        backdrop-filter: blur(140px);
+        -webkit-backdrop-filter: blur(60px);
+        border: 1px solid rgba(255, 255, 255, 0.089);
+        flex: 1.5;
+        color: v.$negro;
+        padding: 0 0 2.5rem 0;
+
+        p {
+            span {
+                font-weight: v.$bold;
+            }
+
+        }
+    }
+
+    &__mision {
+        flex: 1;
+    }
+}

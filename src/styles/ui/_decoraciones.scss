@@ -8,3 +8,17 @@
     @include mx.circuloSombra(40%, 0%, 0%, 47%, 15rem, 15rem);
 }
 
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+
+    &.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav {
+    transition: max-height 0.3s ease;
+}
