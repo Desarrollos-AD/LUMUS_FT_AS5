@@ -151,12 +151,14 @@
             p {
 
                 &:last-child {
-                    margin-bottom: 0rem;
+                    margin: 2rem 0rem 0 0;
                 }
 
                 span {
+                    margin-top: 2rem;
                     font-weight: v.$bold;
-                    letter-spacing: .4rem
+                    letter-spacing: .3rem;
+                    line-height: 1;
                 }
             }
         }

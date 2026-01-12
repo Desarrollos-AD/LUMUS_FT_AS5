@@ -93,7 +93,19 @@
   right: $derecha;
   bottom: $abajo;
   left: $izquierda;
+}
 
+@mixin contadorCards($content){
+    content: $content;
+      font-size: 2rem;
+      border: 4px solid v.$blanco;
+      border-radius: 50%;
+      padding: .1rem 1.2rem;
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      font-weight: v.$bold;
+      color: v.$blanco;
 }
 @keyframes flotar {
 

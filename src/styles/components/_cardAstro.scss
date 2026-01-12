@@ -91,6 +91,7 @@
     h2 {
         color: v.$blanco;
         text-align: left;
+        font-weight: v.$black;
     }
 
     @include mx.telefono-mediano {
@@ -633,6 +634,10 @@
                 grid-column: 3/6;
                 grid-row: 1/2;
             }
+
+            &:after {
+                @include mx.contadorCards("1");
+            }
         }
 
         &__2 {
@@ -645,7 +650,12 @@
                 grid-column: 1/3;
                 grid-row: 1/2;
             }
+
+            &:after {
+                @include mx.contadorCards("2");
+            }
         }
+
 
         &__3 {
             @include mx.telefono_grande {
@@ -656,6 +666,10 @@
             @include mx.tablet-grande {
                 grid-column: 4/6;
                 grid-row: 2/3;
+            }
+
+            &:after {
+                @include mx.contadorCards("3");
             }
         }
 
@@ -668,6 +682,10 @@
             @include mx.tablet-grande {
                 grid-column: 1/4;
                 grid-row: 2/3;
+            }
+
+            &:after {
+                @include mx.contadorCards("4");
             }
         }
     }
